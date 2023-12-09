@@ -9,21 +9,21 @@ export interface User {
   providedIn: 'root'
 })
 export class UsersService {
-  users: User [] = [];
+  users: User[] = [];
   constructor() {
-    for (let i = 0; i<50; i++)
+    for (let i = 0; i < 50; i++)
       this.users.push({
         name: faker.name.fullName(),
-        age: faker.datatype.number({min: 18, max: 30})
+        age: faker.datatype.number({ min: 18, max: 30 })
       });
   }
   getOddOrEven(isOdd = false): User[] {
-    return this.users.filter((user) => !!(user.age % 2) == isOdd );
+    return this.users.filter((user) => !!(user.age % 2) == isOdd);
   }
   addUser(list: User[], name: string) {
     list.unshift({
       name,
-      age: faker.datatype.number({min: 18, max: 30})
+      age: faker.datatype.number({ min: 18, max: 30 })
     });
   }
 }
