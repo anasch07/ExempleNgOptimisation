@@ -21,9 +21,12 @@ export class UsersService {
     return this.users.filter((user) => !!(user.age % 2) == isOdd);
   }
   addUser(list: User[], name: string) {
-    list.unshift({
+    const newUser = {
       name,
       age: faker.datatype.number({ min: 18, max: 30 })
-    });
+    };
+// Add to the main users array
+    this.users.unshift(newUser);
   }
+
 }

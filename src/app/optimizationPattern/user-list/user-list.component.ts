@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { User } from "../users.service";
 
-
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -9,16 +8,15 @@ import { User } from "../users.service";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserListComponent {
-  constructor(private changeDetectorRef: ChangeDetectorRef) { }
-
   @Input() usersCluster: string = '';
   @Input() users: User[] = [];
   @Output() add = new EventEmitter<string>();
-  userFullName: string = '';
-  addUser() {
-    this.changeDetectorRef.detectChanges();
-    this.add.emit(this.userFullName);
-    this.userFullName = '';
+
+  constructor(public changeDetectorRef: ChangeDetectorRef) { }
+
+  addUser(newUser: string) {
+    console.log("addUser")
+    this.add.emit(newUser);
   }
 
 }

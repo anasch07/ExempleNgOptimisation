@@ -11,7 +11,7 @@ export class UserAddComponent {
   @Input() users: User[] = [];
   @Output() add = new EventEmitter<string>();
   userFullName: string = '';
-  addUser() {
+  emitAddUser() {
     this.add.emit(this.userFullName);
     this.userFullName = '';
   }
