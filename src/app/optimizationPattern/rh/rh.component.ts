@@ -10,7 +10,7 @@ import {UserListComponent} from "../user-list/user-list.component";
 })
 
 export class RhComponent implements OnInit {
-  @ViewChild(UserListComponent) userListComponent!: UserListComponent;
+  // @ViewChild(UserListComponent) userListComponent!: UserListComponent;
   oddUsers: User[];
   evenUsers: User[];
   chart: any;
@@ -57,9 +57,7 @@ export class RhComponent implements OnInit {
     this.updateChartData();
     console.log("here1")
 
-    if (this.userListComponent) {
-      this.userListComponent.changeDetectorRef.detectChanges();
-    }
+
     this.oddUsers = [...this.userService.getOddOrEven(true)];
     this.evenUsers = [...this.userService.getOddOrEven()];
     // log both lists
