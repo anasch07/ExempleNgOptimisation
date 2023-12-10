@@ -9,7 +9,7 @@ import {UserListComponent} from "../user-list/user-list.component";
   styleUrls: ['./rh.component.css']
 })
 
-export class RhComponent {
+export class RhComponent implements OnInit {
   @ViewChild(UserListComponent) userListComponent!: UserListComponent;
   oddUsers: User[];
   evenUsers: User[];
